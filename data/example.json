@@ -1,0 +1,22 @@
+[
+  { "label": "Jan", "value": 10, "color": "#FF6384" },
+  { "label": "Feb", "value": 15, "color": "#36A2EB" },
+  { "label": "Mar", "value": 8, "color": "#FFCE56" },
+  { "label": "Apr", "value": 20, "color": "#4BC0C0" },
+  { "label": "May", "value": 12, "color": "#9966FF" },
+  { "label": "Jun", "value": 18, "color": "#FF9F40" },
+  { "label": "Jul", "value": 25, "color": "#E7E9ED" },
+  { "label": "Aug", "value": 17, "color": "#FF6384" },
+  { "label": "Sep", "value": 30, "color": "#36A2EB" },
+  { "label": "Oct", "value": 22, "color": "#FFCE56" },
+  { "label": "Nov", "value": 19, "color": "#4BC0C0" },
+  { "label": "Dec", "value": 27, "color": "#9966FF" },
+  { "label": "Q1", "value": 33, "color": "#FF9F40" },
+  { "label": "Q2", "value": 28, "color": "#E7E9ED" },
+  { "label": "Q3", "value": 24, "color": "#FF6384" },
+  { "label": "Q4", "value": 26, "color": "#36A2EB" },
+  { "label": "Week1", "value": 14, "color": "#FFCE56" },
+  { "label": "Week2", "value": 16, "color": "#4BC0C0" },
+  { "label": "Week3", "value": 19, "color": "#9966FF" },
+  { "label": "Week4", "value": 21, "color": "#FF9F40" }
+]

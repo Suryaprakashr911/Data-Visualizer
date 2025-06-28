@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chartography Visualization</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="left">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h2>Paste JSON or Upload CSV/JSON</h2>
+      <div>
+        <button type="button" onclick="loadExampleData()">Example Data</button>
+        <button type="button" onclick="clearInput()">Clear</button>
+      </div>
+    </div>
+    <textarea id="jsonInput" placeholder="Paste JSON here..."></textarea>
+    <div class="buttons">
+      <button type="button" onclick="renderChart('pie')">Pie</button>
+      <button type="button" onclick="renderChart('polarArea')">Polar Area</button>
+      <button type="button" onclick="renderChart('line')">Line</button>
+      <button type="button" onclick="renderChart('bar')">Bar</button>
+      <button type="button" onclick="renderChart('doughnut')">Doughnut</button>
+      <button type="button" onclick="renderChart('radar')">Radar</button>
+      <input
+        type="file"
+        accept=".csv,.json"
+        onchange="handleFileUpload(event)"
+        title="Upload a CSV or JSON file to generate charts"
+      >
+    </div>
+    <div id="errorMsg" class="error"></div>
+  </div>
+  <div class="right">
+    <canvas id="chartCanvas"></canvas>
+  </div>
+  <script src="assets/js/chart.js"></script>
+</body>
+</html>

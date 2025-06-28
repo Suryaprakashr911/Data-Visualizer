@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+}
+.left, .right {
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.left {
+  background: #f7f7f7;
+  border-right: 1px solid #ccc;
+}
+textarea {
+  width: 100%;
+  height: calc(100% - 250px);
+  resize: none;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 10px;
+}
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+button, input[type="file"] {
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #e0e0e0;
+}
+.error {
+  color: #d8000c;
+  background: #ffd2d2;
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+canvas {
+  max-width: 100%;
+  max-height: 100%;
+}

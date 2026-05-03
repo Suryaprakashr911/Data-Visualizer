@@ -2,39 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chartography Visualization</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chartography — Data Visualizer</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+
+  <!-- Left: Input panel -->
   <div class="left">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <h2>Paste JSON or Upload CSV/JSON</h2>
-      <div>
-        <button type="button" onclick="loadExampleData()">Example Data</button>
-        <button type="button" onclick="clearInput()">Clear</button>
+
+    <div class="panel-header">
+      <h2>Chartography</h2>
+      <div class="btn-row">
+        <button onclick="loadExampleData()">Example</button>
+        <button onclick="beautifyJSON()" title="Format JSON">Beautify</button>
+        <button onclick="clearInput()">Clear</button>
       </div>
     </div>
-    <textarea id="jsonInput" placeholder="Paste JSON here..."></textarea>
-    <div class="buttons">
-      <button type="button" onclick="renderChart('pie')">Pie</button>
-      <button type="button" onclick="renderChart('polarArea')">Polar Area</button>
-      <button type="button" onclick="renderChart('line')">Line</button>
-      <button type="button" onclick="renderChart('bar')">Bar</button>
-      <button type="button" onclick="renderChart('doughnut')">Doughnut</button>
-      <button type="button" onclick="renderChart('radar')">Radar</button>
-      <input
-        type="file"
-        accept=".csv,.json"
-        onchange="handleFileUpload(event)"
-        title="Upload a CSV or JSON file to generate charts"
-      >
+
+    <!-- JSON validity indicator -->
+    <div class="textarea-wrap">
+      <textarea id="jsonInput" placeholder='Paste JSON array or Chart.js object here...&#10;&#10;Example:&#10;[{"label":"Jan","value":120,"date":"2024-01-01"}]' oninput="validateJSON()"></textarea>
+      <span class="json-status" id="jsonStatus"></span>
     </div>
+
     <div id="errorMsg" class="error"></div>
+
+    <div>
+      <div class="section-label">Chart type</div>
+      <div class="btn-row" style="margin-top:6px">
+        <button class="chart-btn active" data-type="bar"       onclick="renderChart('bar')">Bar</button>
+        <button class="chart-btn"        data-type="line"      onclick="renderChart('line')">Line</button>
+        <button class="chart-btn"        data-type="pie"       onclick="renderChart('pie')">Pie</button>
+        <button class="chart-btn"        data-type="doughnut"  onclick="renderChart('doughnut')">Doughnut</button>
+        <button class="chart-btn"        data-type="polarArea" onclick="renderChart('polarArea')">Polar area</button>
+        <button class="chart-btn"        data-type="radar"     onclick="renderChart('radar')">Radar</button>
+      </div>
+    </div>
+
   </div>
+
+  <!-- Right: Output panel -->
   <div class="right">
-    <canvas id="chartCanvas"></canvas>
+
+    <div class="right-header">
+      <span class="section-label">Output</span>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="download-btn" onclick="downloadChart()" title="Download chart as PNG">⬇ PNG</button>
+        <div class="view-toggle">
+          <button class="view-btn"        data-view="chart" onclick="switchView('chart')">Chart</button>
+          <button class="view-btn"        data-view="table" onclick="switchView('table')">Table</button>
+          <button class="view-btn active" data-view="both"  onclick="switchView('both')">Both</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-body view-both" id="rightBody">
+
+      <div id="chartSection">
+        <canvas id="chartCanvas"></canvas>
+      </div>
+
+      <div id="tableSection">
+        <div class="table-header">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span>Data table</span>
+            <span class="row-count" id="rowCount">0 rows</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <input type="text" id="tableSearch" class="search-input" placeholder="Search rows..." oninput="filterTable()" />
+            <button class="icon-btn" onclick="sortTable()" id="sortBtn" title="Sort by first column">⇅ Sort</button>
+          </div>
+        </div>
+        <div id="tableContainer"></div>
+      </div>
+
+    </div>
   </div>
+
   <script src="assets/js/chart.js"></script>
 </body>
 </html>

@@ -21,7 +21,19 @@
         <button onclick="beautifyJSON()" title="Format JSON">Beautify</button>
         <button onclick="clearInput()">Clear</button>
       </div>
-    </div>
+      
+      </div>
+        <div>
+        <div class="section-label">Chart type</div>
+        <div class="btn-row" style="margin-top:6px">
+          <button class="chart-btn active" data-type="bar"       onclick="renderChart('bar')">Bar</button>
+          <button class="chart-btn"        data-type="line"      onclick="renderChart('line')">Line</button>
+          <button class="chart-btn"        data-type="pie"       onclick="renderChart('pie')">Pie</button>
+          <button class="chart-btn"        data-type="doughnut"  onclick="renderChart('doughnut')">Doughnut</button>
+          <button class="chart-btn"        data-type="polarArea" onclick="renderChart('polarArea')">Polar area</button>
+          <button class="chart-btn"        data-type="radar"     onclick="renderChart('radar')">Radar</button>
+        </div>
+      </div>
 
     <!-- JSON validity indicator -->
     <div class="textarea-wrap">
@@ -31,17 +43,6 @@
 
     <div id="errorMsg" class="error"></div>
 
-    <div>
-      <div class="section-label">Chart type</div>
-      <div class="btn-row" style="margin-top:6px">
-        <button class="chart-btn active" data-type="bar"       onclick="renderChart('bar')">Bar</button>
-        <button class="chart-btn"        data-type="line"      onclick="renderChart('line')">Line</button>
-        <button class="chart-btn"        data-type="pie"       onclick="renderChart('pie')">Pie</button>
-        <button class="chart-btn"        data-type="doughnut"  onclick="renderChart('doughnut')">Doughnut</button>
-        <button class="chart-btn"        data-type="polarArea" onclick="renderChart('polarArea')">Polar area</button>
-        <button class="chart-btn"        data-type="radar"     onclick="renderChart('radar')">Radar</button>
-      </div>
-    </div>
 
   </div>
 
